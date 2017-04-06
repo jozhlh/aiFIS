@@ -9,6 +9,7 @@ namespace UnityStandardAssets.Vehicles.Car
     public class CarAiInputController : MonoBehaviour
     {
         private CarController m_Car; // the car controller we want to use
+        private Rigidbody carBody = null;
 
         [SerializeField]
         [Range(-1.0f, 1.0f)]
@@ -22,6 +23,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             // get the car controller
             m_Car = GetComponent<CarController>();
+            carBody = GetComponent<Rigidbody>();
         }
 
 
@@ -36,9 +38,10 @@ namespace UnityStandardAssets.Vehicles.Car
 
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
-            m_Car.Move(h, v, v, handbrake);
+            m_Car.Move(h, v, handbrake, handbrake);
 #else
-            m_Car.Move(h, v, v, 0f);
+            m_Car.Move(h, v, handbrake, 0f);
+            
 #endif
         }
 
@@ -55,6 +58,36 @@ namespace UnityStandardAssets.Vehicles.Car
         public void SetAcceleration(float driveVal)
         {
             accelerator = driveVal;
+        }
+
+        public float GetRateOfDisplacement()
+        {
+            float wideAngle = Mathf.PI / 4;
+            Vector3 forward = new Vector3(0,0,1);
+            float cosTheta = Vector3.Dot(forward, carBody.velocity.normalized);
+            float theta = Mathf.Cos(cosTheta);
+            if (carBody.velocity.x < 0)
+            {
+                theta *= -1;
+            }
+            theta = fClamp(theta, -wideAngle, wideAngle);
+            float displacementRate = theta / wideAngle;
+            return displacementRate;
+        }
+        float fClamp(float x, float min, float max)
+        {
+            float val = x;
+
+            if (x < min)
+            {
+                val = min;
+            }
+            else if (x > max)
+            {
+                val = max;
+            }
+
+            return val;
         }
     }
 }

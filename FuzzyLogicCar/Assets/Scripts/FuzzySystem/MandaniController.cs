@@ -63,6 +63,13 @@ public class MandaniController : MonoBehaviour
                         fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
                             new TrapezoidMembershipFunction(mf.trapezoidParameters.x, mf.trapezoidParameters.y, mf.trapezoidParameters.z, mf.trapezoidParameters.w)));
                         break;
+                    case TypeOfCurve.bell:
+                        //fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
+                            //new TriangularMembershipFunction(mf.triangularParameters.x, mf.triangularParameters.y, mf.triangularParameters.z).ToNormalMF()));
+                        fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName, new NormalMembershipFunction(mf.bellParameters.x, mf.bellParameters.y)));
+                      //  fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
+                         //   new ))
+                        break;
                 }
 
             }
