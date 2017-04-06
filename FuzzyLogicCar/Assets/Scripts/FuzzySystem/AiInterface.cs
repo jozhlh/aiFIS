@@ -40,7 +40,7 @@ public class AiInterface : MonoBehaviour {
 
         displacement = displacement / roadWidth;
 
-        displacement = fClamp(displacement, -roadWidth, roadWidth);
+        displacement = fClamp(displacement, -1.0f, 1.0f);
 
         return displacement;
     }
