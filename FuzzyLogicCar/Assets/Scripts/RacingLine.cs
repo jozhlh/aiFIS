@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RacingLine : MonoBehaviour {
 
 	[SerializeField]
@@ -14,14 +15,26 @@ public class RacingLine : MonoBehaviour {
     
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		Input.simulateMouseWithTouches = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        gameObject.transform.position = new Vector3(linePosition, 0.0f, car.transform.position.z);
+		if (Input.GetMouseButton(0))
+		{
+			// Construct a ray from the current touch coordinates
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			// Create a particle if hit
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit))
+			{
+				linePosition = hit.point.x;
+			}
+		}
+		gameObject.transform.position = new Vector3(linePosition, 0.0f, car.transform.position.z);
 	}
 
 
