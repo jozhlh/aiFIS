@@ -17,7 +17,7 @@ public class RoadGenerator : MonoBehaviour {
     private int lengthOfRoad = 20;
 
     [SerializeField]
-    private float cullingDistance = 20.0f;
+    private float cullingDistance = 100.0f;
 
     private List<GameObject> activeTiles;
 

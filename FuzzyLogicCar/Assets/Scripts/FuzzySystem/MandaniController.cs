@@ -5,6 +5,14 @@ using AI.Fuzzy.Library;
 
 public class MandaniController : MonoBehaviour
 {
+    [SerializeField]
+    private float uiInput0;
+    
+    [SerializeField]
+    private float uiInput1;
+
+    [SerializeField]
+    private double uiOutput;
 
     private MamdaniFuzzySystem fsCar = null;
 
@@ -62,6 +70,13 @@ public class MandaniController : MonoBehaviour
                     case TypeOfCurve.trapezoid:
                         fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
                             new TrapezoidMembershipFunction(mf.trapezoidParameters.x, mf.trapezoidParameters.y, mf.trapezoidParameters.z, mf.trapezoidParameters.w)));
+                        break;
+                    case TypeOfCurve.bell:
+                        //fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
+                            //new TriangularMembershipFunction(mf.triangularParameters.x, mf.triangularParameters.y, mf.triangularParameters.z).ToNormalMF()));
+                        fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName, new NormalMembershipFunction(mf.bellParameters.x, mf.bellParameters.y)));
+                      //  fv.Terms.Add(new FuzzyTerm(mf.membershipFunctionName,
+                         //   new ))
                         break;
                 }
 
@@ -141,6 +156,48 @@ public class MandaniController : MonoBehaviour
         //
         returnVal = result[fsOutputVariable];
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Input 0: " + inputs[0] + " Input 1: " + inputs[1] + " Output: " + returnVal);
+        }
+
         return returnVal;
+    }
+
+    void Update()
+    {
+        double returnVal = 0.0f;
+
+        //
+        // Associate input values with input variables
+        //
+        Dictionary<FuzzyVariable, double> inputValues = new Dictionary<FuzzyVariable, double>();
+
+        int iterator = 0;
+        foreach (FuzzyVariable fv in fsInputVariables)
+        {
+            switch (iterator)
+            {
+                case 0:
+                    inputValues.Add(fv, uiInput0);
+                    break;
+                case 1:
+                    inputValues.Add(fv, uiInput1);
+                    break;
+            }
+            iterator++;
+        }
+
+
+        //
+        // Calculate result: one output value for each output variable
+        //
+        Dictionary<FuzzyVariable, double> result = fsCar.Calculate(inputValues);
+
+        //
+        // Get output value
+        //
+        uiOutput = result[fsOutputVariable];
+
     }
 }

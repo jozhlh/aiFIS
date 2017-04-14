@@ -27,7 +27,7 @@ public class AiInterface : MonoBehaviour {
 	void Update ()
     {
         fuzzySystem.inputs[0] = CalculateDisplacement();
-        fuzzySystem.inputs[1] = car.GetComponent<CarAiInputController>().Steering();
+        fuzzySystem.inputs[1] = car.GetComponent<CarAiInputController>().GetRateOfDisplacement();
 
         car.GetComponent<CarAiInputController>().SetSteering((float)fuzzySystem.EvaluateSystem());
     }
