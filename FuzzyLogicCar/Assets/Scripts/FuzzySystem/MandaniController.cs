@@ -2,9 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AI.Fuzzy.Library;
+using UnityEngine.UI;
 
 public class MandaniController : MonoBehaviour
 {
+    [Header("UI References")]
+    [SerializeField]
+    private Text input0Text;
+    [SerializeField]
+    private Text input1Text;
+    [SerializeField]
+    private Text outputText;
+    [SerializeField]
+    private Slider input0Slider;
+    [SerializeField]
+    private Slider input1Slider;
+    [SerializeField]
+    private Slider outputSlider;
+
+    [Header("Manual Variable Calculation")]
     [SerializeField]
     private float uiInput0;
     
@@ -155,6 +171,14 @@ public class MandaniController : MonoBehaviour
         // Get output value
         //
         returnVal = result[fsOutputVariable];
+
+        input0Text.text = inputs[0].ToString();
+        input1Text.text = inputs[1].ToString();
+        outputText.text = returnVal.ToString();
+
+        input0Slider.value = inputs[0];
+        input1Slider.value = inputs[1];
+        outputSlider.value = (float)returnVal;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

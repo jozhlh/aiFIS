@@ -25,7 +25,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         [SerializeField]
         [Range(-1.0f, 1.0f)]
-        private float initialAccelerationTime = 3.0f;
+        private float initialAccelerationTime = 4.0f;
 
         [SerializeField]
         [Range(-1.0f, 1.0f)]
@@ -39,6 +39,7 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Car = GetComponent<CarController>();
             carBody = GetComponent<Rigidbody>();
             counter = initialAccelerationTime;
+            accelerator = steadyAcceleration;
         }
 
 
@@ -47,15 +48,16 @@ namespace UnityStandardAssets.Vehicles.Car
             // pass the input to the car!
            // float h = CrossPlatformInputManager.GetAxis("Horizontal");
            // float v = CrossPlatformInputManager.GetAxis("Vertical");
-           initialAccelerationTime -= Time.deltaTime;
-           if (initialAccelerationTime > 0)
-           {
-               accelerator = startAcceleration;
-           }
-           else
-           {
-                accelerator = steadyAcceleration;
-           }
+
+           //counter -= Time.deltaTime;
+           //if (counter > 0)
+           //{
+           //    accelerator += (Time.deltaTime * 0.01f);
+           //}
+           //else
+           //{
+           //     accelerator = steadyAcceleration;
+           //}
             float v = accelerator;
             float h = steering;
 
@@ -63,6 +65,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
             m_Car.Move(h, v, handbrake, handbrake);
 #else
+            float handbrake = CrossPlatformInputManager.GetAxis("Jump");
             m_Car.Move(h, v, handbrake, 0f);
             
 #endif
@@ -88,7 +91,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float wideAngle = Mathf.PI / 4;
             Vector3 forward = new Vector3(0,0,1);
             float cosTheta = Vector3.Dot(forward, carBody.velocity.normalized);
-            float theta = Mathf.Cos(cosTheta);
+            float theta = Mathf.Acos(cosTheta);
             if (carBody.velocity.x < 0)
             {
                 theta *= -1;
@@ -97,6 +100,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float displacementRate = theta / wideAngle;
             return displacementRate;
         }
+
         float fClamp(float x, float min, float max)
         {
             float val = x;
