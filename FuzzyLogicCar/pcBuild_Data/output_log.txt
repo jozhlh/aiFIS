@@ -1,0 +1,71 @@
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon (TM) R9 Fury Series (ID=0x7300)
+    Vendor:   ATI
+    VRAM:     3072 MB
+    Driver:   21.19.519.2
+Begin MonoManager ReloadAssembly
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: S:\git\aiFIS\aiFIS\FuzzyLogicCar\pcBuild_Data\Managed\System.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 7200x2160 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.634260 ms
+Loading BellCurve2_Ruleset1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.516816 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 671.
+Total: 0.310355 ms (FindLiveObjects: 0.031561 ms CreateObjectMapping: 0.020456 ms MarkObjects: 0.253954 ms  DeleteObjects: 0.003214 ms)
+
+Loading BellCurve_Ruleset1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.651980 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 671.
+Total: 0.303342 ms (FindLiveObjects: 0.026593 ms CreateObjectMapping: 0.020456 ms MarkObjects: 0.252200 ms  DeleteObjects: 0.002922 ms)
+
+Loading BellCurve2_Ruleset1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.802483 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 671.
+Total: 0.308310 ms (FindLiveObjects: 0.037698 ms CreateObjectMapping: 0.020164 ms MarkObjects: 0.246355 ms  DeleteObjects: 0.002922 ms)
+
+Loading BellCurve2_Ruleset1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.666008 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 671.
+Total: 0.284931 ms (FindLiveObjects: 0.023671 ms CreateObjectMapping: 0.019872 ms MarkObjects: 0.237296 ms  DeleteObjects: 0.002922 ms)
+
